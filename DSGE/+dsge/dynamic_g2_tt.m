@@ -1,0 +1,123 @@
+function T = dynamic_g2_tt(T, y, x, params, steady_state, it_)
+% function T = dynamic_g2_tt(T, y, x, params, steady_state, it_)
+%
+% File created by Dynare Preprocessor from .mod file
+%
+% Inputs:
+%   T             [#temp variables by 1]     double  vector of temporary terms to be filled by function
+%   y             [#dynamic variables by 1]  double  vector of endogenous variables in the order stored
+%                                                    in M_.lead_lag_incidence; see the Manual
+%   x             [nperiods by M_.exo_nbr]   double  matrix of exogenous variables (in declaration order)
+%                                                    for all simulation periods
+%   steady_state  [M_.endo_nbr by 1]         double  vector of steady state values
+%   params        [M_.param_nbr by 1]        double  vector of parameter values in declaration order
+%   it_           scalar                     double  time period for exogenous variables for which
+%                                                    to evaluate the model
+%
+% Output:
+%   T           [#temp variables by 1]       double  vector of temporary terms
+%
+
+assert(length(T) >= 181);
+
+T = dsge.dynamic_g1_tt(T, y, x, params, steady_state, it_);
+
+T(85) = getPowerDeriv(y(29),(-params(2)),2);
+T(86) = (1-params(6)+y(33))*T(85);
+T(87) = params(1)*(T(38)*T(2)*T(38)+T(2)*T(86));
+T(88) = getPowerDeriv(params(1)*T(2),T(3),2);
+T(89) = params(1)*(T(38)*T(1)*T(2)+T(2)*T(37));
+T(90) = (-((-y(10))*(y(9)+y(9))))/(y(9)*y(9)*y(9)*y(9));
+T(91) = (-((-((1+params(13))*y(15)))*(y(14)+y(14))))/(y(14)*y(14)*y(14)*y(14));
+T(92) = getPowerDeriv(T(4),(-params(3)),2);
+T(93) = T(5)*(T(58)*T(91)+T(57)*T(57)*T(92));
+T(94) = (-(1+params(13)))/(y(14)*y(14));
+T(95) = (-((-((1+params(13))*y(16)))*(y(14)+y(14))))/(y(14)*y(14)*y(14)*y(14));
+T(96) = getPowerDeriv(T(7),(-params(3)),2);
+T(97) = T(8)*(T(61)*T(95)+T(60)*T(60)*T(96));
+T(98) = (-(((-y(6))-(y(29)-y(6)))*(y(6)+y(6))))/(y(6)*y(6)*y(6)*y(6));
+T(99) = T(30)*T(11)*T(30)+T(11)*T(98);
+T(100) = y(34)*T(30)*T(13)*y(34)*T(30)+T(13)*y(34)*T(98);
+T(101) = y(25)*T(99)+y(25)*T(100)-exp(y(34))*T(99);
+T(102) = (-(y(25)*T(99)));
+T(103) = T(32)*T(33)+T(15)*T(101)-(T(32)*T(33)+T(14)*T(102));
+T(104) = T(15)*T(33)+T(15)*T(33);
+T(105) = T(35)*T(103)-T(34)*T(104);
+T(106) = T(35)*T(35);
+T(107) = (-1)/(y(6)*y(6));
+T(108) = T(30)*T(11)*T(40)+T(11)*T(107);
+T(109) = y(25)*T(108);
+T(110) = y(34)*T(30)*T(13)*y(34)*T(40)+T(13)*y(34)*T(107);
+T(111) = T(109)+y(25)*T(110)-exp(y(34))*T(108);
+T(112) = T(32)*T(42)+T(15)*T(111)-(T(33)*T(41)+T(14)*(-T(109)));
+T(113) = T(15)*T(42)+T(15)*T(42);
+T(114) = (-(T(11)*T(30)));
+T(115) = T(32)*T(67)+T(15)*(T(11)*T(30)+T(13)*y(34)*T(30))-(T(33)*(T(11)+T(13))+T(14)*T(114));
+T(116) = T(15)*T(67)+T(15)*T(67);
+T(117) = y(25)*(y(34)*T(30)*T(81)+T(13)*T(30))-exp(y(34))*T(11)*T(30);
+T(118) = T(15)*T(117)-T(33)*T(82);
+T(119) = y(25)*T(40)*T(11)*T(40)+y(25)*y(34)*T(40)*T(13)*y(34)*T(40)-exp(y(34))*T(40)*T(11)*T(40);
+T(120) = (-(y(25)*T(40)*T(11)*T(40)));
+T(121) = T(41)*T(42)+T(15)*T(119)-(T(41)*T(42)+T(14)*T(120));
+T(122) = (-(T(11)*T(40)));
+T(123) = T(41)*T(67)+T(15)*(T(11)*T(40)+T(13)*y(34)*T(40))-(T(42)*(T(11)+T(13))+T(14)*T(122));
+T(124) = y(34)*T(40)*T(81)+T(13)*T(40);
+T(125) = y(25)*T(124)-exp(y(34))*T(11)*T(40);
+T(126) = y(25)*T(10)*T(81)-exp(y(34))*T(11);
+T(127) = T(31)*T(33)+T(15)*y(25)*T(99)-(T(31)*T(33)+T(12)*T(102));
+T(128) = T(35)*T(127)-T(36)*T(104);
+T(129) = T(31)*T(42)+T(15)*T(109)-(T(33)*y(25)*T(11)*T(40)+T(12)*(-T(109)));
+T(130) = T(31)*T(67)+T(15)*T(11)*T(30)-(T(11)*T(33)+T(12)*T(114));
+T(131) = y(25)*T(11)*T(40)*T(42)+T(15)*y(25)*T(40)*T(11)*T(40)-(y(25)*T(11)*T(40)*T(42)+T(12)*T(120));
+T(132) = T(35)*T(131)-T(43)*T(113);
+T(133) = y(25)*T(11)*T(40)*T(67)+T(15)*T(11)*T(40)-(T(11)*T(42)+T(12)*T(122));
+T(134) = T(35)*T(133)-T(43)*T(116);
+T(135) = T(17)*y(25)*T(17)+T(17)*y(25)*T(17);
+T(136) = (-((-(T(16)*T(17)))*T(135)));
+T(137) = T(68)*T(68);
+T(138) = T(136)/T(137);
+T(139) = (-(T(17)*T(75)+T(16)*T(76)));
+T(140) = y(25)*T(17)*y(25)*T(76)+y(25)*T(17)*y(25)*T(76);
+T(141) = (T(68)*T(139)-(-(T(16)*T(17)))*T(140))/T(137);
+T(142) = y(25)*T(17)*y(25)*T(83)+y(25)*T(17)*y(25)*T(83);
+T(143) = (T(68)*(-(T(16)*T(17)+T(16)*T(83)))-(-(T(16)*T(17)))*T(142))/T(137);
+T(144) = T(83)+(-exp(y(34)-y(27)))*2*(-exp(y(34)-y(27)));
+T(145) = y(25)*T(144);
+T(146) = T(16)*y(25)*T(17)+T(75)*y(25)*T(76)-(T(75)*y(25)*T(76)+T(16)*T(145));
+T(147) = (T(68)*T(146)-T(77)*T(140))/T(137);
+T(148) = y(25)*T(17)*T(75)+T(75)*y(25)*T(83)-(T(16)*y(25)*T(76)+T(16)*y(25)*(T(76)+T(76)));
+T(149) = (T(68)*T(148)-T(77)*T(142))/T(137);
+T(150) = T(68)*(T(16)*y(25)*T(17)+T(16)*y(25)*T(83)-(T(16)*y(25)*T(83)+T(16)*y(25)*(T(83)+T(83))))-(T(16)*y(25)*T(17)-T(16)*y(25)*T(83))*T(142);
+T(151) = T(150)/T(137);
+T(152) = (-((-y(31))*(y(30)+y(30))))/(y(30)*y(30)*y(30)*y(30));
+T(153) = (-params(2))*getPowerDeriv(y(29),(-1),2);
+T(154) = T(44)+T(44)+y(29)*T(153);
+T(155) = getPowerDeriv(y(12),params(4),2);
+T(156) = y(10)*y(15)*params(9)*(params(3)-1)*y(15)*params(9)*(params(3)-1)+y(10)*y(15)*params(9)*(params(3)-1)*y(15)*params(9)*(params(3)-1);
+T(157) = (-(T(48)*T(156)));
+T(158) = T(157)/(T(49)*T(49));
+T(159) = getPowerDeriv(T(22),T(23),2);
+T(160) = y(10)*y(15)*params(9)*(params(3)-1)*(params(3)-1)*y(10)*params(9)+y(10)*y(15)*params(9)*(params(3)-1)*(params(3)-1)*y(10)*params(9);
+T(161) = (T(49)*T(70)-T(48)*T(160))/(T(49)*T(49));
+T(162) = (-(y(15)*params(9)*(params(3)-1)*params(3)*(1-params(11))));
+T(163) = T(162)/T(49);
+T(164) = (-((-(params(3)*y(28)*(1-params(11))*(params(3)-1)*y(10)*params(9)))*T(160)))/(T(49)*T(49));
+T(165) = (-((params(3)-1)*y(10)*params(9)*params(3)*(1-params(11))))/T(49);
+T(166) = (params(3)-1)*y(11)*y(16)*params(10)*(params(3)-1)*y(16)*params(10)+(params(3)-1)*y(11)*y(16)*params(10)*(params(3)-1)*y(16)*params(10);
+T(167) = (-(T(52)*T(166)));
+T(168) = T(167)/(T(53)*T(53));
+T(169) = getPowerDeriv(T(24),T(25),2);
+T(170) = (params(3)-1)*y(11)*y(16)*params(10)*(params(3)-1)*y(11)*params(10)+(params(3)-1)*y(11)*y(16)*params(10)*(params(3)-1)*y(11)*params(10);
+T(171) = (T(53)*(-(y(2)*params(3)*(params(3)-1)*params(10)))-T(52)*T(170))/(T(53)*T(53));
+T(172) = (-(params(3)*(params(3)-1)*y(16)*params(10)))/T(53);
+T(173) = (-((-(y(2)*params(3)*(params(3)-1)*y(11)*params(10)))*T(170)))/(T(53)*T(53));
+T(174) = (-(params(3)*(params(3)-1)*y(11)*params(10)))/T(53);
+T(175) = getPowerDeriv(T(18),1-params(9),2);
+T(176) = (params(3)-1)*y(26)*params(9)*params(9)*(params(3)-1)+(params(3)-1)*y(26)*params(9)*params(9)*(params(3)-1);
+T(177) = (-(T(70)*T(176)));
+T(178) = T(71)*T(71);
+T(179) = T(177)/T(178);
+T(180) = (-(params(9)*(params(3)-1)*params(3)*(1-params(11))))/T(71);
+T(181) = getPowerDeriv(T(18),1-params(10),2);
+
+end

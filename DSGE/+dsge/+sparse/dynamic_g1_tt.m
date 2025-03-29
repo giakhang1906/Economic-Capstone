@@ -1,0 +1,65 @@
+function [T_order, T] = dynamic_g1_tt(y, x, params, steady_state, T_order, T)
+if T_order >= 1
+    return
+end
+[T_order, T] = dsge.sparse.dynamic_resid_tt(y, x, params, steady_state, T_order, T);
+T_order = 1;
+if size(T, 1) < 84
+    T = [T; NaN(84 - size(T, 1), 1)];
+end
+T(30) = ((-y(30))-(y(56)-y(30)))/(y(30)*y(30));
+T(31) = y(49)*T(11)*T(30);
+T(32) = T(31)+y(49)*T(13)*y(78)*T(30)-exp(y(78))*T(11)*T(30);
+T(33) = (-T(31));
+T(34) = T(15)*T(32)-T(14)*T(33);
+T(35) = T(15)*T(15);
+T(36) = T(15)*T(31)-T(12)*T(33);
+T(37) = getPowerDeriv(y(56),(-params(2)),1);
+T(38) = (1-params(6)+y(67))*T(37);
+T(39) = getPowerDeriv(params(1)*T(2),T(3),1);
+T(40) = 1/y(30);
+T(41) = y(49)*T(11)*T(40)+y(49)*T(13)*y(78)*T(40)-exp(y(78))*T(11)*T(40);
+T(42) = (-(y(49)*T(11)*T(40)));
+T(43) = T(15)*y(49)*T(11)*T(40)-T(12)*T(42);
+T(44) = (-params(2))*getPowerDeriv(y(56),(-1),1);
+T(45) = T(19)+y(56)*T(44);
+T(46) = getPowerDeriv(T(18),1-params(9),1);
+T(47) = getPowerDeriv(T(18),1-params(10),1);
+T(48) = (-(params(3)*y(52)*(1-params(11))*y(39)*params(9)*(params(3)-1)));
+T(49) = y(34)*y(39)*params(9)*(params(3)-1)*y(34)*y(39)*params(9)*(params(3)-1);
+T(50) = T(48)/T(49);
+T(51) = getPowerDeriv(T(22),T(23),1);
+T(52) = (-(y(25)*params(3)*(params(3)-1)*y(40)*params(10)));
+T(53) = (params(3)-1)*y(35)*y(40)*params(10)*(params(3)-1)*y(35)*y(40)*params(10);
+T(54) = T(52)/T(53);
+T(55) = getPowerDeriv(T(24),T(25),1);
+T(56) = getPowerDeriv(y(36),params(4),1);
+T(57) = (-((1+params(13))*y(39)))/(y(38)*y(38));
+T(58) = getPowerDeriv(T(4),(-params(3)),1);
+T(59) = T(5)*T(57)*T(58);
+T(60) = (-((1+params(13))*y(40)))/(y(38)*y(38));
+T(61) = getPowerDeriv(T(7),(-params(3)),1);
+T(62) = T(8)*T(60)*T(61);
+T(63) = (1+params(13))/y(38);
+T(64) = T(5)*T(58)*T(63);
+T(65) = (-(params(3)*y(52)*(1-params(11))*(params(3)-1)*y(34)*params(9)))/T(49);
+T(66) = (-(y(25)*params(3)*(params(3)-1)*y(35)*params(10)))/T(53);
+T(67) = (-T(11));
+T(68) = y(49)*T(17)*y(49)*T(17);
+T(69) = (-(T(16)*T(17)))/T(68);
+T(70) = (-(params(3)*y(52)*(1-params(11))*params(9)*(params(3)-1)));
+T(71) = (params(3)-1)*y(50)*params(9)*(params(3)-1)*y(50)*params(9);
+T(72) = T(70)/T(71);
+T(73) = params(3)/((params(3)-1)*y(35)*y(40)*params(10));
+T(74) = params(3)/((params(3)-1)*params(15)*params(9));
+T(75) = exp(y(56))*(-exp(y(78)-y(51)));
+T(76) = (-exp(y(78)-y(51)))*2*exp(y(78)-y(51));
+T(77) = y(49)*T(17)*T(75)-T(16)*y(49)*T(76);
+T(78) = T(77)/T(68);
+T(79) = params(3)*(1-params(11))/(y(34)*y(39)*params(9)*(params(3)-1));
+T(80) = params(3)*(1-params(11))/((params(3)-1)*y(50)*params(9));
+T(81) = T(10)*T(13);
+T(82) = y(49)*T(81)-exp(y(78))*T(11);
+T(83) = exp(y(78)-y(51))*2*exp(y(78)-y(51));
+T(84) = (T(16)*y(49)*T(17)-T(16)*y(49)*T(83))/T(68);
+end

@@ -1,0 +1,50 @@
+Starting Dynare (version 6.3).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ...
+Found 26 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+4 block(s) found:
+  2 recursive block(s) and 2 simultaneous block(s).
+  the largest simultaneous block has 16 equation(s)
+                                 and 16 feedback variable(s).
+Computing dynamic model derivatives (order 4).
+Normalizing the dynamic model...
+Normalization failed with cutoff, trying symbolic normalization...
+Could not normalize the dynamic model. Variable K_G is not in the maximum cardinality matching.
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+dynare_solve: starting value results in nonfinite/NaN value. Randomize initial guess...
+
+
+Residuals of the static equations:
+Equation number  1: C     :      25.201558
+Equation number  2: r_D   :            NaN
+Equation number  3: C_G   :       0.000000
+Equation number  4: C_NG  :       0.000000
+Equation number  5: 5     :       2.779205
+Equation number  6: 6     :       0.286271
+Equation number  7: a     :     -14.000000
+Equation number  8: I_G   :       8.000000
+Equation number  9: I_NG  :       5.700000
+Equation number 10: a_G   : -354206948857.552002
+Equation number 11: a_NG  :            NaN
+Equation number 12: z     :       1.106531
+Equation number 13: Y     :       0.000000
+Equation number 14: Y_G   :      17.543544
+Equation number 15: Y_NG  :      17.543544
+Equation number 16: K_G   :      20.000000
+Equation number 17: K_NG  :       0.000000
+Equation number 18: P_G   : 82781631.915514
+Equation number 19: P_NG  : 110975376.118623
+Equation number 20: P     :       0.000000
+Equation number 21: I     :       0.000000
+Equation number 22: 22    :       0.000000
+Equation number 23: pi_G  :     115.058752
+Equation number 24: pi_NG :     156.986170
+Equation number 25: tau   :       0.000000
+Equation number 26: D     :       4.088889
+
+
